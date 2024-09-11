@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smpl - home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/f1466ef7f2.js" crossorigin="anonymous"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+    </script>      
+</head>
+<body>
+    <div id="top">
+        <h1 class="prevent-select">smpl: life made easier.</h1>
+    </div>
+    <!--<label for="task">What tasks do you have today?:</label>-->
+    <h2 id="header" class="prevent-select">What are you doing today?</h2>
+    <div id="text-field">
+        <input id="task" name="task" type="text" placeholder="i.e. Walk the dog."/>
+    </div>
+    <div id="buttons">
+        <button id="add-task">Add Task</button>
+        <button id="clear-task">Clear All Tasks</button>
+        <button id="ai-task">AI-Fill</button>
+    </div>
+    <div class="container">
+        <ul id="list"></ul>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+            <h2>Uh oh...</h2>
+            <p>
+                Your task cannot be empty!
+            </p>
+            <div class="choice-buttons">
+                <button id="closeModal" class="closeModal">Close</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal" id="editModal">
+        <div class="modal-inner">
+            <h2>Edit Task</h2>
+            <div>
+                <textarea id = "editInput" wrap="soft"></textarea>
+            </div>
+            <div class="choice-buttons">
+                <button id="editCloseModal" class="closeModal">Save</button>
+                <button id="discardCloseModal" class="closeModal">Discard Changes</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal" id="warningModal">
+        <div class="modal-inner">
+            <h2>Warning</h2>
+            <p>
+                You are about to delete all your tasks!
+            </p>
+            <div class="choice-buttons">
+                <button id="cancelCloseModal" class="closeModal">Cancel</button>
+                <button id="proceedCloseModal" class="closeModal">Proceed</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal" id="aiModal">
+        <div class="modal-inner">
+            <h2>AI Task Creator</h2>
+            <p>
+                Write about your life right now to auto-fill tasks!
+            </p>
+            <div>
+                <textarea id = "aiInput" wrap="soft"></textarea>
+            </div>
+            <div class="choice-buttons">
+                <button id="aiCancelModal" class="closeModal">Cancel</button>
+                <button id="aiSaveModal" class="closeModal">Save</button>
+            </div>
+        </div>
+
+    </div>
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+  
+        // Fetch your API_KEY
+        const API_KEY = "AIzaSyCVtItWRiC1aMj90BDGSumF8DvDBf5gwpU";
+    </script>
+    <script type='module' src="index.js"></script>
+     
+</body>
+</html>
